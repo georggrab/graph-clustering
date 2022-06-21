@@ -1,0 +1,51 @@
+\section{Measuring Clustering Quality}
+
+\begin{frame}{Measuring Clustering Quality: Modularity (introduction)}
+
+Modularity [Newman et al., 2004], denoted $Q$, is a popular metric used to evaluate a given clustering.
+\begin{enumerate}
+ \item<1-> $Q \in [-0.5; 1]$
+ \item<2-> "Rule of thumb": $Q > 0.3$ means the clustering of the given graph is of decent quality.
+ \item<3->{Not without flaws, but still popular}
+ \item<4->{Basic idea: compare a graph with a given clustering with a \emph{randomly rewired} version...}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Measuring Clustering Quality: Modularity (intuition)}
+\begin{figure}
+  \only<1>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{rewire_edges_start.mp4}}
+  \only<2>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{rewire_edges_rewiring_shortened.mp4}}
+  \caption{
+    \only<1>{Start with a given clustering} 
+    \only<2>{Randomly rewire, preserving vertex degrees.}
+    }
+\end{figure}
+\end{frame}
+
+\begin{frame}[label=measuring-clustering-quality-modularity-definition]{Measuring Clustering Quality: Modularity (definition)}
+
+In the following, let $k_v$ be the degree of vertex $v$. Let $A$ be the adjacency matrix of the graph. Let $c_v$ denote that vertex $v$ belongs to cluster $c_v$.
+
+\begin{enumerate}
+ \item<1-> Goal: compare the fraction of edges within clusters with the \emph{expectation} of the same value in a randomly rewired graph.
+ \item<2-> Fraction of edges within clusters:
+
+  \begin{equation}
+      \frac{1}{2m} \sum_{vw} A_{vw}\ \delta(c_v, c_w)
+  \label{eqn:fraction_of_edges_within_cluster}
+  \end{equation}
+
+  \item<3-> What can we say about the \emph{probability} of two vertices being connected, knowing only vertex degrees?
+  \begin{equation}
+    \frac{k_v\ k_w}{2m-1}.
+  \label{eqn:randomly_rewired_graph_probabilities}
+  \end{equation}
+
+  \item<4-> Putting both together, we get the definition of modularity:
+  \begin{equation}
+    Q = \frac{1}{2m} \sum_{vw} (A_{vw}\ - \frac{k_v\ k_w}{2m-1}) \delta(c_v, c_w)
+  \label{eqn:modularity}
+  \end{equation}
+\end{enumerate}
+\end{frame}

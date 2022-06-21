@@ -1,0 +1,32 @@
+\section{Discussion}
+
+\begin{frame}{Discussion: Parallel vs. Serial Performance}
+\begin{itemize}
+\item<1-> Parallel Louvain: 1.45x to 13.07x speedup over serial (measured on several real life datasets)
+\item<2-> Parallel Label Propagation: "Unmatched" in execution time, also compared to other parallel algorithms (but no quantitative details vs. serial), \textbf{but} clustering results worse.
+\item<3-> Triangle Counting: Successfully processed subset of Twitter (41.7 million user profiles (\textbf{nodes}), 1.47 billion social relations (\textbf{edges}) on a 1636 node compute cluster in 423 minutes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Discussion: Why should you care?}
+
+There are many (parallel) graph clustering algorithms. Why show you these ones?
+
+\begin{itemize}
+    \item<1-> Parallel Louvain \& Parallel Label Propagation: implemented in Neo4J $\rightarrow$ mature, used in production everyday.
+    \item<2-> Distributed Triangle Counting: raises question of \emph{data skew} present in real life datasets.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Discussion: Limitations}
+\begin{itemize}
+    \item<1-> This barely scratches the surface, there are many (parallel) graph clustering approaches.
+    \item<2-> MapReduce (final Algorithm), is declining in popularity. Fails to handle petabyte scale. But "curse of the last reducer" will remain relevant.
+    \item<3-> Parallel Label Propagation: Lack of comparison with serial algorithm makes evaluation difficult.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+  \centering \Large
+  \emph{Thanks. Questions?}
+\end{frame}

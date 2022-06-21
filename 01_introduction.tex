@@ -1,0 +1,25 @@
+\section{Basics and Motivation}
+
+\begin{frame}{Graph Clustering: Why?}{}
+\begin{figure}
+    \includegraphics<1>[scale=0.7]{220523_distparallel_plain.drawio.svg}
+    \includegraphics<2>[scale=0.7]{220523_distparallel_output.drawio.svg}
+    \caption{\only<1>{Given some input graph...} \only<2>{...group related vertices into \textbf{clusters}.}}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Motivation: Karate Club Dataset}
+
+Can we detect how this Karate Club will split, \textbf{based on interactions of members}?
+
+\begin{figure}
+  \only<1>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{partial_movie_files/ImportNetworkxGraph/1_draw.mp4}}
+  \only<2>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{partial_movie_files/ImportNetworkxGraph/3_color.mp4}}
+  \only<3>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{partial_movie_files/ImportNetworkxGraph/5_reorder.mp4}}
+  \caption{
+    \only<1>{\textbf{Vertices} are members, \textbf{edges} are connections between them.} 
+    \only<2>{Run a \textbf{clustering algorithm}.}
+    \only<3>{Reorder based on clustering.}
+    }
+\end{figure}
+\end{frame}

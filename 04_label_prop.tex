@@ -1,0 +1,49 @@
+\section{(Parallel) Label Propagation}
+
+\begin{frame}{Label Propagation (serial)}{}
+\begin{enumerate}
+ \item<1-> Every vertex starts in own cluster. Also assign random iteration order.
+ \item<2-> Traverse vertices sequentially. For every vertex:
+ \begin{enumerate}
+   \item<3-> Assign its cluster to the majority of neighbor clusters. Split ties randomly.
+ \end{enumerate}
+ \item<5-> Repeat this multiple times if necessary. Generate new random iteration order each time.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Label Propagation (intuition)}
+\begin{figure}
+  \only<1>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{label_propagation_start.mp4}}
+  \only<2>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{label_propagation.mp4}}
+  \caption{
+    \only<1>{Vertices start in their own clusters} 
+    \only<2>{Iterate, assign to the majority cluster label of neighbors.}
+    }
+\end{figure}
+\end{frame}
+
+\begin{frame}{Label Propagation (discussion)}
+\begin{enumerate}
+    \item<1-> The serial algorithm is nondeterministic because ties are split randomly.
+    \item<2-> It is possible for vertices to change labels indefinitely. 
+    \item<3-> \textbf{How to parallelize?} Split vertices evenly, process in parallel.
+    \item<4-> We now have randomness for free due to parallelism: assigning random iteration order no longer needed!
+    \item<5-> Race conditions will occur, but "might be beneficial"...
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Label Propagation (why are race conditions fine?)}
+\begin{figure}
+  \only<1>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{label_propagation_sync_update_start.mp4}}
+  \only<2>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{label_propagation_sync_update.mp4}}
+  \only<3>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{label_propagation_bipartite_start.mp4}}
+  \only<4>{\includemedia[width=32em,height=16em,autoplay,muted,embed=false]{}{label_propagation_bipartite.mp4}}
+  \caption{
+    \only<1>{Bipartite Graph with synchronous updating...} 
+    \only<2>{...will oscillate indefinitely.}
+    \only<3>{Bipartite Graph with \textbf{a}synchronous updating...} 
+    \only<4>{...behaves slightly better (at least no oscillations)}
+    }
+  \label{fig:label-propagation-bipartite}
+\end{figure}
+\end{frame}

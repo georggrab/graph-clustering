@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Basics and Motivation}{3}{0}{1}
+\beamer@sectionintoc {2}{Measuring Clustering Quality}{9}{0}{2}
+\beamer@sectionintoc {3}{(Parallel) Louvain Algorithm}{20}{0}{3}
+\beamer@sectionintoc {4}{(Parallel) Label Propagation}{37}{0}{4}
+\beamer@sectionintoc {5}{(Distributed) Triangle Counting}{54}{0}{5}
+\beamer@sectionintoc {6}{Discussion}{66}{0}{6}

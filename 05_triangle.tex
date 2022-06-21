@@ -1,0 +1,42 @@
+\section{(Distributed) Triangle Counting}
+
+\begin{frame}{What's triangle counting?}{}
+\begin{enumerate}
+ \item<1-> Quite literally, the count of triangles incident to each vertex
+ \begin{figure}
+     \includegraphics<1->[scale=0.5]{220621_triangle_count_overview.svg}
+ \end{figure}
+ \item<2-> Used for computing clustering coefficient, both per-vertex and globally.
+ \item<3-> Serial algorithm (boring): for every vertex, check if neighbors are themselves neighbors.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Triangle Counting: What's MapReduce?}{}
+\begin{enumerate}
+ \item<1-> MapReduce is a programming paradigm for designing distributed algorithms.
+ \item<2-> Fundamental Currency: Key-Value tuple: $(k, v)$
+ \begin{figure}
+     \includegraphics<3->[scale=0.5]{220621_mapreduce_overview.svg}
+ \end{figure}
+ \item<4-> \textbf{Main Idea:} Map and Reduce operations can be split across multiple compute nodes.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Triangle Counting: MapReduce Algorithm}{}
+ \begin{figure}
+     \includegraphics<1->[scale=0.25]{220523_surietal_graph_example.svg}
+ \end{figure}
+ \begin{figure}
+     \includegraphics<2->[scale=0.4]{220523_graph_first_stage.svg}
+ \end{figure}
+ \begin{figure}
+     \includegraphics<3->[scale=0.4]{220621_surietal_graph_second_stage.svg}
+ \end{figure}
+\end{frame}
+
+\begin{frame}{Triangle Counting: Curse of the Last Reducer}
+\begin{figure}
+     \includegraphics<1->[scale=0.5]{220621_surietal_reducer_completion_times.png}
+     \caption{From [Suri et al. 2015]}
+\end{figure}
+\end{frame}
